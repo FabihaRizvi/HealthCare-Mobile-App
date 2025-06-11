@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Hospital Management System</string>
+    <string name="healthcareheading">HealthCare</string>
+    <string name="loginheading">Login</string>
+    <string name="usernameinput">Username</string>
+    <string name="passwordinput">Password</string>
+    <string name="already_have_an_account_signup">Already have an account?Login</string>
+    <string name="loginbuttontext">login</string>
+    <string name="signupheading">Signup</string>
+    <string name="usernameSignup">Username</string>
+    <string name="passwordSignup">Password</string>
+    <string name="signupButtonText">Signup</string>
+    <string name="don_t_have_an_account_signup">Don\'t have an account?Signup</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="confirm_password">Confirm Password</string>
+</resources>
