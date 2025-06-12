@@ -10,7 +10,7 @@
     <string name="usernameSignup">Username</string>
     <string name="passwordSignup">Password</string>
     <string name="signupButtonText">Signup</string>
-    <string name="don_t_have_an_account_signup">Don\'t have an account?Signup</string>
+    <string name="don_t_have_an_account_signup">Don\'t have an account? Signup</string>
     <string name="enter_your_email_address">Enter your email address</string>
     <string name="confirm_password">Confirm Password</string>
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signupbackground"
+    android:background="@drawable/signup_background"
     tools:context=".SignupActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -66,6 +66,7 @@
         android:paddingBottom="10dp"
         android:textColorHint="@color/black"
         android:textSize="20sp"
+        android:autofillHints="username"
         app:layout_constraintBottom_toTopOf="@+id/signupEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,6 +91,7 @@
         android:paddingBottom="10dp"
         android:textColorHint="@color/black"
         android:textSize="20sp"
+        android:autofillHints="emailAddress"
         app:layout_constraintBottom_toTopOf="@+id/signupPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,6 +115,7 @@
         android:paddingBottom="10dp"
         android:textColorHint="@color/black"
         android:textSize="20sp"
+        android:autofillHints="password"
         app:layout_constraintBottom_toTopOf="@+id/confirmPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -41,12 +41,14 @@ public class SignupActivity extends AppCompatActivity {
                 String email = signupEmail.getText().toString();
                 String password = signupPassword.getText().toString();
                 String confirm = confirmPassword.getText().toString();
+                MyDatabase db = new MyDatabase(getApplicationContext(),"healthcare",null, 1);
 
                 if (username.length() == 0 || password.length() == 0 || email.length() == 0 || confirm.length() == 0) {
                     Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_SHORT).show();
                 } else {
                     if (password.compareTo(confirm) == 0) {
                         if (isValid(password)) {
+                            db.signup(username,email,password);
                             Toast.makeText(getApplicationContext(),"Signup successfull",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                         }else {
