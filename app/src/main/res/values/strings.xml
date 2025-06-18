@@ -13,4 +13,10 @@
     <string name="don_t_have_an_account_signup">Don\'t have an account? Signup</string>
     <string name="enter_your_email_address">Enter your email address</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="lab_test">Lab Test</string>
+    <string name="buy_medicine">Buy Medicine</string>
+    <string name="find_doctor">Find Doctor</string>
+    <string name="health_article">Health Article</string>
+    <string name="order_details">Order details</string>
+    <string name="log_out">Log Out</string>
 </resources>
