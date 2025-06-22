@@ -39,7 +39,7 @@
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="@string/signupheading"
-        android:textColor="#232323"
+        android:textColor="@color/secondHeadingGrey"
         android:textSize="34sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/signupUsername"

@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="headingGrey">#CC323232</color>
-    <color name="loginGrey">#FF232323</color>
+    <color name="secondHeadingGrey">#FF232323</color>
     <color name="buttonColor">#B31E3232</color>
     <color name="blue">#81ACDB</color>
 </resources>
