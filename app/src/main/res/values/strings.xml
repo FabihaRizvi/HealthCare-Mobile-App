@@ -20,4 +20,11 @@
     <string name="order_details">Order details</string>
     <string name="log_out">Log Out</string>
     <string name="top_doctors">Top Doctors</string>
+    <string name="general_physician">General Physician</string>
+    <string name="dentist">Dentist</string>
+    <string name="dietician">Dietician</string>
+    <string name="surgeon">Surgeon</string>
+    <string name="cardiologist">Cardiologist</string>
+    <string name="psychiatrist">Psychiatrist</string>
+    <string name="back_to_home">Back to Home</string>
 </resources>
