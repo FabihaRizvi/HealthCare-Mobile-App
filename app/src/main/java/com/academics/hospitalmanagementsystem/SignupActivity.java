@@ -48,7 +48,7 @@ public class SignupActivity extends AppCompatActivity {
                 } else {
                     if (password.compareTo(confirm) == 0) {
                         if (isValid(password)) {
-                            db.signup(username,email,password);
+                            db.signup(email,username, password);
                             Toast.makeText(getApplicationContext(),"Signup successfull",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                         }else {
