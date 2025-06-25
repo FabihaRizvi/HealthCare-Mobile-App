@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "152230193088",
+    "project_id": "healthcare-54257",
+    "storage_bucket": "healthcare-54257.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152230193088:android:37ebea2873a00f41bc8a25",
+        "android_client_info": {
+          "package_name": "com.academics.hospitalmanagementsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYgPgfSy7TZkkTqtYw7k93qHCDLA9ZH2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
