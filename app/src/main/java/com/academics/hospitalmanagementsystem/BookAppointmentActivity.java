@@ -1,10 +1,12 @@
 package com.academics.hospitalmanagementsystem;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +22,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
 
+        TextView backOption = findViewById(R.id.backOption);
         EditText editDoctorName = findViewById(R.id.bookAppointmentDoctorName);
         EditText editHospital = findViewById(R.id.bookAppointmentHospital);
         EditText editDate = findViewById(R.id.bookAppointmentDate);
@@ -33,6 +36,13 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
         editDoctorName.setText(doctorName);
         editHospital.setText(hospitalName);
+
+        backOption.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+               startActivity(new Intent(BookAppointmentActivity.this, DoctorDetailsActivity.class));
+            }
+        });
 
         editDate.setOnClickListener(new View.OnClickListener() {
             @Override

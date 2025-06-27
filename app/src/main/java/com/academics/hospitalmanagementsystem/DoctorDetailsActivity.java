@@ -61,6 +61,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         }
 
         ArrayList<String> doctorList = new ArrayList<>();
+        ArrayList<Doctor> doctorObjects = new ArrayList<>();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.doctor_details_list, R.id.doctorDetailsText, doctorList);
         listView.setAdapter(adapter);
 
@@ -70,9 +71,11 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 doctorList.clear();
+                doctorObjects.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Doctor doctor = snap.getValue(Doctor.class);
                     if (doctor != null) {
+                        doctorObjects.add(doctor);
                         String details = "Name: " + doctor.name +
                                 "\nGender: " + doctor.gender +
                                 "\nHospital: " + doctor.hospital +
@@ -82,6 +85,15 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                     }
                 }
                 adapter.notifyDataSetChanged();
+
+                listView.setOnItemClickListener((parent, view, position, id) -> {
+                    Doctor selectedDoctor = doctorObjects.get(position);
+
+                    Intent intent = new Intent(DoctorDetailsActivity.this, BookAppointmentActivity.class);
+                    intent.putExtra("doctorName", selectedDoctor.name);
+                    intent.putExtra("hospitalName", selectedDoctor.hospital);
+                    startActivity(intent);
+                });
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

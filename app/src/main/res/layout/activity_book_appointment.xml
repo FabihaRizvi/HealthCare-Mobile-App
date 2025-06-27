@@ -80,7 +80,9 @@
             android:clickable="true"
             android:background="@android:color/transparent"
             android:padding="12dp"
-            android:inputType="none"/>
+            android:inputType="none"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/headingGrey"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -99,7 +101,9 @@
             android:clickable="true"
             android:background="@android:color/transparent"
             android:padding="12dp"
-            android:inputType="none"/>
+            android:inputType="none"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/headingGrey"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -115,7 +119,9 @@
             android:layout_height="wrap_content"
             android:hint="Enter your name"
             android:background="@android:color/transparent"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/headingGrey"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -132,7 +138,9 @@
             android:hint="e.g. 03123456789"
             android:inputType="phone"
             android:background="@android:color/transparent"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/headingGrey"/>
 
         <Button
             android:id="@+id/btnBook"
