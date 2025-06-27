@@ -26,39 +26,45 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_details);
-
-        ListView listView = findViewById(R.id.DDlist);
-        String doctorTitle = getIntent().getStringExtra("Title");
         TextView title = findViewById(R.id.DDtitle);
-        title.setText(doctorTitle);
-
+        ListView listView = findViewById(R.id.DDlist);
+        String doctorTitle = getIntent().getStringExtra("Title"); // e.g., "General Physician"
         String category = "";
-        switch (doctorTitle) {
-            case "General Physician":
-                category = "general_physician";
-                break;
-            case "Dentist":
-                category = "dentist";
-                break;
-            case "Dietician":
-                category = "dietician";
-                break;
-            case "Surgeon":
-                category = "surgeon";
-                break;
-            case "Cardiologist":
-                category = "cardiologist";
-                break;
-            case "Psychiatrist":
-                category = "psychiatrist";
-                break;
+        if (doctorTitle != null) {
+            title.setText(doctorTitle);
+            switch (doctorTitle) {
+                case "General Physician":
+                    category = "general_physician";
+                    break;
+                case "Dentist":
+                    category = "dentist";
+                    break;
+                case "Dietician":
+                    category = "dietician";
+                    break;
+                case "Surgeon":
+                    category = "surgeon";
+                    break;
+                case "Cardiologist":
+                    category = "cardiologist";
+                    break;
+                case "Psychiatrist":
+                    category = "psychiatrist";
+                    break;
+                default:
+                    Toast.makeText(this, "Unknown doctor category", Toast.LENGTH_SHORT).show();
+                    return;
+            }
+        } else {
+            Toast.makeText(this, "No category provided", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         ArrayList<String> doctorList = new ArrayList<>();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, doctorList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.doctor_details_list, R.id.doctorDetailsText, doctorList);
         listView.setAdapter(adapter);
 
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference(category);
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference(category).child("doctors");
 
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,12 +85,12 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(DoctorDetailsActivity.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DoctorDetailsActivity.this, "Data load failed", Toast.LENGTH_SHORT).show();
             }
         });
 
-        Button btn = findViewById(R.id.DDbackButton);
-        btn.setOnClickListener(new View.OnClickListener() {
+        TextView backTextView = findViewById(R.id.ddbackOptiontextView);
+        backTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                  startActivity(new Intent(DoctorDetailsActivity.this, FindDoctorActivity.class));

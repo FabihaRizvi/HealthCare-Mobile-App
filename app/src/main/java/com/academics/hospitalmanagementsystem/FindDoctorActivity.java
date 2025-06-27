@@ -28,7 +28,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("Title", "general_physician");
+                intent.putExtra("Title", "General Physician");
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("Title", "dentist");
+                intent.putExtra("Title", "Dentist");
                 startActivity(intent);
             }
         });
@@ -48,7 +48,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("Title", "dietician");
+                intent.putExtra("Title", "Dietician");
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("Title", "surgeon");
+                intent.putExtra("Title", "Surgeon");
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("Title", "cardiologist");
+                intent.putExtra("Title", "Cardiologist");
                 startActivity(intent);
             }
         });
@@ -78,7 +78,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("Title", "psychiatrist");
+                intent.putExtra("Title", "Psychiatrist");
                 startActivity(intent);
             }
         });
