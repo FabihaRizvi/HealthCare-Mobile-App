@@ -28,4 +28,11 @@
     <string name="psychiatrist">Psychiatrist</string>
     <string name="back_to_home">Back to Home</string>
     <string name="back">Back</string>
+    <string name="lab_tests">Lab Tests</string>
+    <string name="blood_test">Blood Test</string>
+    <string name="xray">XRay</string>
+    <string name="diabetes_test">Diabetes Test</string>
+    <string name="cbc">CBC</string>
+    <string name="urine_routine_test">Urine Routine Test</string>
+    <string name="ultrasound">Ultrasound</string>
 </resources>
