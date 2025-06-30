@@ -28,7 +28,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_details);
         TextView title = findViewById(R.id.DDtitle);
         ListView listView = findViewById(R.id.DDlist);
-        String doctorTitle = getIntent().getStringExtra("Title"); // e.g., "General Physician"
+        String doctorTitle = getIntent().getStringExtra("Title");
         String category = "";
         if (doctorTitle != null) {
             title.setText(doctorTitle);
