@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -97,6 +98,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FIREBASE_ERROR", error.getMessage());
                 Toast.makeText(DoctorDetailsActivity.this, "Data load failed", Toast.LENGTH_SHORT).show();
             }
         });

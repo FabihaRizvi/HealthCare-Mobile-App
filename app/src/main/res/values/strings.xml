@@ -36,4 +36,6 @@
     <string name="urine_routine_test">Urine Routine Test</string>
     <string name="ultrasound">Ultrasound</string>
     <string name="lab_test_booking">Lab Test Booking</string>
+    <string name="health_article_heading">Health Article</string>
+    <string name="loading">Loading...</string>
 </resources>

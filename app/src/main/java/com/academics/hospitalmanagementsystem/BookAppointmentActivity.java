@@ -40,7 +40,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         backOption.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-               startActivity(new Intent(BookAppointmentActivity.this, DoctorDetailsActivity.class));
+               finish();
             }
         });
 

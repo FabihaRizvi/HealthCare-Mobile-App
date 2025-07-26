@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -59,6 +60,7 @@ public class LabTestDetailActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("FIREBASE_ERROR", error.getMessage());
                     Toast.makeText(LabTestDetailActivity.this, "Failed to fetch data", Toast.LENGTH_SHORT).show();
                 }
             });
