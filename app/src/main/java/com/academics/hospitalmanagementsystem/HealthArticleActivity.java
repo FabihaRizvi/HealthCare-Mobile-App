@@ -41,7 +41,7 @@ public class HealthArticleActivity extends AppCompatActivity {
 
         NewsAPIInterface newsAPI = retrofit.create(NewsAPIInterface.class);
 
-        Call<NewsResponse> call = newsAPI.getHealthArticles("health", "us", "3786a9259afdcfc321b073c252df7a75");
+        Call<NewsResponse> call = newsAPI.getHealthArticles("health", "en", "pk","3786a9259afdcfc321b073c252df7a75");
 
         call.enqueue(new Callback<NewsResponse>(){
                 @Override

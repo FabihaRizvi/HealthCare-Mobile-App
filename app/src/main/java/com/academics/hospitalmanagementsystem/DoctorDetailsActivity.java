@@ -98,7 +98,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("FIREBASE_ERROR", error.getMessage());
+//                Log.e("FIREBASE_ERROR", error.getMessage());
                 Toast.makeText(DoctorDetailsActivity.this, "Data load failed", Toast.LENGTH_SHORT).show();
             }
         });

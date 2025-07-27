@@ -60,7 +60,7 @@ public class LabTestDetailActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    Log.e("FIREBASE_ERROR", error.getMessage());
+//                    Log.e("FIREBASE_ERROR", error.getMessage());
                     Toast.makeText(LabTestDetailActivity.this, "Failed to fetch data", Toast.LENGTH_SHORT).show();
                 }
             });
