@@ -13,17 +13,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Map;
 
 public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHolder> {
 
     Context context;
     List<Medicine> medicineList;
-    List<Medicine> cartList;
+    Map<Medicine, Integer> cartMap;
+    Runnable onCartUpdated;
 
-    public MedicineAdapter(Context context, List<Medicine> medicineList, List<Medicine> cartList) {
+    public MedicineAdapter(Context context, List<Medicine> medicineList, Map<Medicine, Integer> cartMap, Runnable onCartUpdated) {
         this.context = context;
         this.medicineList = medicineList;
-        this.cartList = cartList;
+        this.cartMap = cartMap;
+        this.onCartUpdated = onCartUpdated;
     }
 
     @NonNull
@@ -39,10 +42,24 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
         holder.name.setText(med.name);
         holder.price.setText("Rs. " + med.price);
         holder.image.setImageResource(med.imageResId);
+        holder.quantityText.setText(String.valueOf(med.quantity));
+
+        holder.increaseBtn.setOnClickListener(v -> {
+            med.quantity++;
+            holder.quantityText.setText(String.valueOf(med.quantity));
+        });
+
+        holder.decreaseBtn.setOnClickListener(v -> {
+            if (med.quantity > 1) {
+                med.quantity--;
+                holder.quantityText.setText(String.valueOf(med.quantity));
+            }
+        });
 
         holder.addBtn.setOnClickListener(v -> {
-            cartList.add(med);
+            cartMap.put(med, med.quantity);
             Toast.makeText(context, med.name + " added to cart", Toast.LENGTH_SHORT).show();
+            if (onCartUpdated != null) onCartUpdated.run();
         });
     }
 
@@ -52,9 +69,9 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, price;
+        TextView name, price, quantityText;
         ImageView image;
-        Button addBtn;
+        Button addBtn, increaseBtn, decreaseBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +79,10 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
             price = itemView.findViewById(R.id.medicinePrice);
             image = itemView.findViewById(R.id.medicineImage);
             addBtn = itemView.findViewById(R.id.addToCartBtn);
+            quantityText = itemView.findViewById(R.id.quantityText);
+            increaseBtn = itemView.findViewById(R.id.btnIncrease);
+            decreaseBtn = itemView.findViewById(R.id.btnDecrease);
+
         }
     }
 }
