@@ -4,10 +4,13 @@ public class Medicine {
     public String name;
     public String description;
     public double price;
-    public int imageResId;
+    public String imageResId;
+    public int imageDrawableId;
     public int quantity;
 
-    public Medicine(String name, String description,double price, int imageResId, int quantity){
+    public Medicine(){}
+
+    public Medicine(String name, String description,double price, String imageResId, int quantity){
         this.name = name;
         this.description = description;
         this.price = price;
