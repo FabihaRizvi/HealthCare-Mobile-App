@@ -16,6 +16,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        startActivity(new Intent(this, ManageMedicines.class));
+
         SharedPreferences sharedPreferences =  getSharedPreferences("shared_prefs",MODE_PRIVATE);
         String username = sharedPreferences.getString("username"," ").toString();
         Toast.makeText(getApplicationContext(),"Welcome"+" "+ username, Toast.LENGTH_SHORT).show();

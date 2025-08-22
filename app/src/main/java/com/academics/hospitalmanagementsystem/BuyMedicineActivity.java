@@ -44,12 +44,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
         cartCount = findViewById(R.id.cartCount);
         backOption = findViewById(R.id.backOption);
 
-        backOption.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BuyMedicineActivity.this, HomeActivity.class));
-            }
-        });
+        backOption.setOnClickListener(v -> startActivity(new Intent(BuyMedicineActivity.this, HomeActivity.class)));
 
         medicines = new ArrayList<>();
         cartMap = new HashMap<>();
@@ -61,16 +56,16 @@ public class BuyMedicineActivity extends AppCompatActivity {
 
         fetchMedicineFromFirebase();
 
-        btnOrder.setOnClickListener(v -> {
-            if (cartMap.isEmpty()) {
-                Toast.makeText(this, "Your cart is empty", Toast.LENGTH_SHORT).show();
-            } else {
-                Intent intent = new Intent(this, OrderFormActivity.class);
-                intent.putExtra("quantities", new ArrayList<>(cartMap.values()));
-                intent.putExtra("cart", new ArrayList<>(cartMap.keySet()));
-                startActivity(intent);
-            }
-        });
+//        btnOrder.setOnClickListener(v -> {
+//            if (cartMap.isEmpty()) {
+//                Toast.makeText(this, "Your cart is empty", Toast.LENGTH_SHORT).show();
+//            } else {
+//                Intent intent = new Intent(this, OrderFormActivity.class);
+//                intent.putExtra("quantities", new ArrayList<>(cartMap.values()));
+//                intent.putExtra("cart", new ArrayList<>(cartMap.keySet()));
+//                startActivity(intent);
+//            }
+//        });
 
         cartIcon.setOnClickListener(v -> {
             if (cartMap.isEmpty()) {
@@ -89,7 +84,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
     private void fetchMedicineFromFirebase() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Medicines");
 
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 medicines.clear();
@@ -97,10 +92,15 @@ public class BuyMedicineActivity extends AppCompatActivity {
                     Medicine med = snap.getValue(Medicine.class);
 
                     if (med != null) {
-                        med.imageDrawableId = getResources().getIdentifier(med.imageResId, "drawable", getPackageName());
-                        med.quantity = 1;
-                        medicines.add(med);
+                        int resId = getResources().getIdentifier(med.imageResId, "drawable", getPackageName());
+                        if (resId != 0) {
+                            med.imageDrawableId = resId;
+                        } else {
+                            med.imageDrawableId = R.drawable.default_medicine;
+                        }
                     }
+                    med.quantity = 1;
+                    medicines.add(med);
                 }
                 adapter.notifyDataSetChanged();
             }
