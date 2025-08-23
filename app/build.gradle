@@ -2,7 +2,13 @@ plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
 }
-
+def newsApiKey = ""
+def localProperties = rootProject.file("local.properties")
+if (localProperties.exists()) {
+    Properties properties = new Properties()
+    properties.load(new FileInputStream(localProperties))
+    newsApiKey = properties.getProperty("NEWS_API_KEY", "")
+}
 android {
     namespace 'com.academics.hospitalmanagementsystem'
     compileSdk 34
@@ -15,6 +21,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "NEWS_API_KEY", "\"${newsApiKey}\""
     }
 
     buildTypes {
