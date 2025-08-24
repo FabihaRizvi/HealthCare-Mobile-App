@@ -16,7 +16,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        startActivity(new Intent(this, ManageMedicines.class));
+        MedicineSeeder.seedMedicines();
 
         SharedPreferences sharedPreferences =  getSharedPreferences("shared_prefs",MODE_PRIVATE);
         String username = sharedPreferences.getString("username"," ").toString();

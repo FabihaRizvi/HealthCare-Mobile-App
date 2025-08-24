@@ -98,9 +98,9 @@ public class BuyMedicineActivity extends AppCompatActivity {
                         } else {
                             med.imageDrawableId = R.drawable.default_medicine;
                         }
+                        med.quantity = 1;
+                        medicines.add(med);
                     }
-                    med.quantity = 1;
-                    medicines.add(med);
                 }
                 adapter.notifyDataSetChanged();
             }

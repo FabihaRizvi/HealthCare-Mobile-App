@@ -41,9 +41,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
         Medicine med = medicineList.get(position);
         holder.name.setText(med.name);
         holder.price.setText("Rs. " + med.price);
-        holder.image.setImageResource(
-                context.getResources().getIdentifier(med.imageResId, "drawable", context.getPackageName())
-        );
+        holder.image.setImageResource(med.imageDrawableId);
         holder.quantityText.setText(String.valueOf(med.quantity));
 
         holder.increaseBtn.setOnClickListener(v -> {
