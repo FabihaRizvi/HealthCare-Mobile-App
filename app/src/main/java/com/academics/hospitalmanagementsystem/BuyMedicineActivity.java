@@ -68,6 +68,8 @@ public class BuyMedicineActivity extends AppCompatActivity {
 //        });
 
         cartIcon.setOnClickListener(v -> {
+            Intent in = new Intent(BuyMedicineActivity.this, CartViewActivity.class);
+            startActivity(in);
             if (cartMap.isEmpty()) {
                 Toast.makeText(this, "Your cart is empty", Toast.LENGTH_SHORT).show();
             } else {

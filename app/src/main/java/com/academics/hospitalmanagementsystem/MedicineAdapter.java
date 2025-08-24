@@ -41,6 +41,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
         Medicine med = medicineList.get(position);
         holder.name.setText(med.name);
         holder.price.setText("Rs. " + med.price);
+        holder.description.setText(med.description);
         holder.image.setImageResource(med.imageDrawableId);
         holder.quantityText.setText(String.valueOf(med.quantity));
 
@@ -69,7 +70,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, price, quantityText;
+        TextView name, description, price, quantityText;
         ImageView image;
         Button addBtn, increaseBtn, decreaseBtn;
 
@@ -77,6 +78,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
             super(itemView);
             name = itemView.findViewById(R.id.medicineName);
             price = itemView.findViewById(R.id.medicinePrice);
+            description = itemView.findViewById(R.id.medicineDescription);
             image = itemView.findViewById(R.id.medicineImage);
             addBtn = itemView.findViewById(R.id.addToCartBtn);
             quantityText = itemView.findViewById(R.id.quantityText);
