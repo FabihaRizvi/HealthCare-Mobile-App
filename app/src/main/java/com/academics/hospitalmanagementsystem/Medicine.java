@@ -1,6 +1,8 @@
 package com.academics.hospitalmanagementsystem;
 
-public class Medicine {
+import java.io.Serializable;
+
+public class Medicine implements Serializable {
     public String name;
     public String description;
     public double price;

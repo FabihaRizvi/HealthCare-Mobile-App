@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +25,6 @@ import java.util.List;
 public class BuyMedicineActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    Button btnOrder;
     ImageView cartIcon;
     TextView cartCount, backOption;
     List<Medicine> medicines;
@@ -39,7 +37,6 @@ public class BuyMedicineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_buy_medicine);
 
         recyclerView = findViewById(R.id.medicineRecyclerView);
-        btnOrder = findViewById(R.id.btnOrder);
         cartIcon = findViewById(R.id.cartIcon);
         cartCount = findViewById(R.id.cartCount);
         backOption = findViewById(R.id.backOption);
@@ -56,20 +53,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
 
         fetchMedicineFromFirebase();
 
-//        btnOrder.setOnClickListener(v -> {
-//            if (cartMap.isEmpty()) {
-//                Toast.makeText(this, "Your cart is empty", Toast.LENGTH_SHORT).show();
-//            } else {
-//                Intent intent = new Intent(this, OrderFormActivity.class);
-//                intent.putExtra("quantities", new ArrayList<>(cartMap.values()));
-//                intent.putExtra("cart", new ArrayList<>(cartMap.keySet()));
-//                startActivity(intent);
-//            }
-//        });
-
         cartIcon.setOnClickListener(v -> {
-            Intent in = new Intent(BuyMedicineActivity.this, CartViewActivity.class);
-            startActivity(in);
             if (cartMap.isEmpty()) {
                 Toast.makeText(this, "Your cart is empty", Toast.LENGTH_SHORT).show();
             } else {
@@ -95,11 +79,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
 
                     if (med != null) {
                         int resId = getResources().getIdentifier(med.imageResId, "drawable", getPackageName());
-                        if (resId != 0) {
-                            med.imageDrawableId = resId;
-                        } else {
-                            med.imageDrawableId = R.drawable.default_medicine;
-                        }
+                        med.imageDrawableId = resId != 0 ? resId : R.drawable.default_medicine;
                         med.quantity = 1;
                         medicines.add(med);
                     }
