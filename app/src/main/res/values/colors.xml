@@ -7,4 +7,5 @@
     <color name="buttonColor">#B31E3232</color>
     <color name="blue">#81ACDB</color>
     <color name="FDCardColor">#072B53</color>
+    <color name="DeliveryBoxAmount">#CC757373</color>
 </resources>

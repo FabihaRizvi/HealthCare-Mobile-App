@@ -48,4 +48,17 @@
     <string name="decreaseBtn">-</string>
     <string name="increaseBtn">+</string>
     <string name="delete_item">Delete item</string>
+    <string name="confirm_your_order">Confirm Your Order</string>
+    <string name="total_rs_0">Total: Rs. 0</string>
+    <string name="enter_delivery_address">Enter delivery address</string>
+    <string name="enter_contact_number">Enter contact number</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="backBtn">← Back</string>
+    <string name="full_name">Full Name</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="total_rs_0_incl_delivery">Total: Rs. 0 (Incl. Delivery)</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="rs_200_x_2">Rs. 200 x 2</string>
 </resources>

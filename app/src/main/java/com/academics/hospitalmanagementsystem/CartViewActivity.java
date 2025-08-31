@@ -45,7 +45,8 @@ public class CartViewActivity extends AppCompatActivity {
             }
         }
 
-        cartAdapter = new CartAdapter(this,new ArrayList<>(cartMap.keySet()),cartMap,()->{
+        cartItems = new ArrayList<>(cartMap.keySet());
+        cartAdapter = new CartAdapter(this, cartItems, cartMap, () -> {
             cartAdapter.notifyDataSetChanged();
         });
 
@@ -56,9 +57,10 @@ public class CartViewActivity extends AppCompatActivity {
             if (cartMap.isEmpty()){
                 Toast.makeText(this, "Your cart is empty!", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(this,"Order placed Successfully!",Toast.LENGTH_LONG).show();
-                cartMap.clear();
-                cartAdapter.notifyDataSetChanged();
+                Intent intent = new Intent(CartViewActivity.this, OrderFormActivity.class);
+                intent.putExtra("cart", new ArrayList<>(cartMap.keySet()));
+                intent.putExtra("quantities", new ArrayList<>(cartMap.values()));
+                startActivity(intent);
             }
         });
     }
