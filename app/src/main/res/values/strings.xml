@@ -61,4 +61,11 @@
     <string name="total_rs_0_incl_delivery">Total: Rs. 0 (Incl. Delivery)</string>
     <string name="medicine_name">Medicine Name</string>
     <string name="rs_200_x_2">Rs. 200 x 2</string>
+    <string name="name_sam">Name: Sam</string>
+    <string name="contact_0300_1234567">Contact: 0300-1234567</string>
+    <string name="address_texas_america">Address: Texas, America</string>
+    <string name="total_rs_1500_incl_delivery">Total: Rs. 1500 (Incl. Delivery)</string>
+    <string name="delivery_within_24_hours">Delivery within 24 hours</string>
+    <string name="download_slip">Download Slip</string>
+    <string name="order_slip">Order Slip</string>
 </resources>

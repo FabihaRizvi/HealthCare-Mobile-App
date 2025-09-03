@@ -19,11 +19,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     List<Medicine> cartItems;
     Map<Medicine,Integer> cartMap;
     Runnable onCartUpdated;
-    public CartAdapter(Context context, List<Medicine> cartItems, Map<Medicine, Integer> cartMap, Runnable onCartUpdated){
+    boolean isSlipView;
+    public CartAdapter(Context context, List<Medicine> cartItems, Map<Medicine, Integer> cartMap, Runnable onCartUpdated, boolean isSlipView){
         this.context = context;
         this.cartItems = cartItems;
         this.cartMap = cartMap;
         this.onCartUpdated = onCartUpdated;
+        this.isSlipView = isSlipView;
 
     }
 
@@ -40,7 +42,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         holder.name.setText(med.name);
         holder.price.setText("RS. " + med.price);
-        holder.quantityText.setText(String.valueOf(cartMap.get(med)));
+        holder.quantityText.setText("Qty: " + cartMap.get(med));
 
         int resId = context.getResources().getIdentifier(med.imageResId, "drawable", context.getPackageName());
         if (resId != 0) {
@@ -49,31 +51,36 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             holder.image.setImageResource(R.drawable.default_medicine);
         }
 
-        holder.decreaseBtn.setOnClickListener(v -> {
-            int qty = cartMap.get(med);
-            if (qty > 1) {
-                qty--;
+        if (isSlipView) {
+            holder.decreaseBtn.setVisibility(View.GONE);
+            holder.increaseBtn.setVisibility(View.GONE);
+            holder.deleteBtn.setVisibility(View.GONE);
+        }else {
+            holder.decreaseBtn.setOnClickListener(v -> {
+                int qty = cartMap.get(med);
+                if (qty > 1) {
+                    qty--;
+                    cartMap.put(med, qty);
+                    holder.quantityText.setText(String.valueOf(qty));
+                    onCartUpdated.run();
+                }
+            });
+
+            holder.increaseBtn.setOnClickListener(v -> {
+                int qty = cartMap.get(med) + 1;
                 cartMap.put(med, qty);
                 holder.quantityText.setText(String.valueOf(qty));
                 onCartUpdated.run();
-            }
-        });
+            });
 
-        holder.increaseBtn.setOnClickListener(v -> {
-            int qty = cartMap.get(med) + 1;
-            cartMap.put(med, qty);
-            holder.quantityText.setText(String.valueOf(qty));
-            onCartUpdated.run();
-        });
-
-        holder.deleteBtn.setOnClickListener(v -> {
-            cartMap.remove(med);
-            cartItems.remove(position);
-            notifyItemRemoved(position);
-            notifyItemRangeChanged(position, cartItems.size());
-            onCartUpdated.run();
-        });
-
+            holder.deleteBtn.setOnClickListener(v -> {
+                cartMap.remove(med);
+                cartItems.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, cartItems.size());
+                onCartUpdated.run();
+            });
+        }
     }
 
     @Override
