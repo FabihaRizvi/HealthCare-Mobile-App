@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_image"
+    android:background="@drawable/background_gradient"
     tools:context=".LoginActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -104,7 +104,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="88dp"
         android:layout_marginBottom="34dp"
-        android:backgroundTint="#B31E3232"
+        android:backgroundTint="@color/purple"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="@string/loginbuttontext"

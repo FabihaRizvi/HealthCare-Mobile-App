@@ -22,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         String username = sharedPreferences.getString("username"," ").toString();
         Toast.makeText(getApplicationContext(),"Welcome"+" "+ username, Toast.LENGTH_SHORT).show();
 
-        CardView exit = findViewById(R.id.exit);
+        CardView exit = findViewById(R.id.logoutCard);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

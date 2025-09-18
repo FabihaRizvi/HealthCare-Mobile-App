@@ -108,6 +108,8 @@ public class OrderFormActivity extends AppCompatActivity {
                         Intent slipIntent = new Intent(OrderFormActivity.this, OrderSlipActivity.class);
                         slipIntent.putExtra("orderId", orderId);
                         slipIntent.putExtra("orderData", new HashMap<>(orderData));
+                        slipIntent.putExtra("cartItems", new ArrayList<>(orderItems));
+                        slipIntent.putExtra("quantities", new ArrayList<>(quantities));
                         startActivity(slipIntent);
 //                        finish();
                     })

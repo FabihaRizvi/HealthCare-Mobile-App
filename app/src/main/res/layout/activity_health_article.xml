@@ -2,22 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_health_article"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     android:padding="16dp"
-    android:background="@drawable/signup_background"
+    android:textAlignment="center"
     tools:context=".HealthArticleActivity">
 
     <TextView
         android:id="@+id/healthCareTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
         android:text="@string/healthcareheading"
         android:textColor="@color/headingGrey"
         android:textSize="34sp"
-        android:textStyle="bold|italic"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"/>
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/backOption"
@@ -35,31 +36,32 @@
         android:id="@+id/healthArticleHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/healthCareTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
         android:text="@string/health_article_heading"
         android:textColor="@color/secondHeadingGrey"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_below="@id/healthCareTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"/>
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/healthArticleHeading"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true">
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:id="@+id/articleContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/loading"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="italic"
             android:gravity="center"
-            android:padding="12dp"/>
+            android:padding="12dp"
+            android:text="@string/loading"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="italic" />
     </ScrollView>
 </RelativeLayout>

@@ -52,6 +52,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         }
 
         if (isSlipView) {
+            holder.quantityText.setText("Qty: " + cartMap.get(med));
             holder.decreaseBtn.setVisibility(View.GONE);
             holder.increaseBtn.setVisibility(View.GONE);
             holder.deleteBtn.setVisibility(View.GONE);

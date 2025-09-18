@@ -6,7 +6,7 @@
     android:layout_margin="8dp"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="6dp"
-    android:backgroundTint="@android:color/white">
+    android:backgroundTint="@android:color/transparent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                     android:id="@+id/btnCartDecrease"
                     android:text="@string/decreaseBtn"
                     android:textSize="18sp"
-                    android:backgroundTint="@color/buttonColor"
+                    android:backgroundTint="@color/purple"
                     android:textColor="@color/white"
                     android:padding="0dp"/>
 
@@ -82,7 +82,7 @@
                     android:id="@+id/btnCartIncrease"
                     android:text="@string/increaseBtn"
                     android:textSize="18sp"
-                    android:backgroundTint="@color/buttonColor"
+                    android:backgroundTint="@color/purple"
                     android:textColor="@color/white"
                     android:padding="0dp"/>
             </LinearLayout>

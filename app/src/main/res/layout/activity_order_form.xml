@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    android:background="@android:color/white">
+    android:background="@drawable/background_gradient">
 
     <TextView
         android:id="@+id/backOption"
@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
-        android:background="@drawable/rounded_border_bg"
         android:layout_marginBottom="10dp">
 
         <EditText
@@ -79,7 +78,7 @@
         android:textStyle="bold"
         android:padding="12dp"
         android:textColor="@color/black"
-        android:background="#CC757373"/>
+        android:background="@android:color/transparent"/>
 
     <Button
         android:id="@+id/btnConfirmOrder"
@@ -87,7 +86,7 @@
         android:layout_height="wrap_content"
         android:text="@string/confirm_your_order"
         android:textAllCaps="false"
-        android:backgroundTint="@color/buttonColor"
+        android:backgroundTint="@color/purple"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:layout_marginTop="10dp"

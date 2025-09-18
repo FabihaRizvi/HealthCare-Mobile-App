@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="headingGrey">#CC323232</color>
-    <color name="secondHeadingGrey">#FF232323</color>
+
+    <color name="headingGrey">#CC181717</color>
+    <color name="secondHeadingGrey">#1F1F1F</color>
     <color name="buttonColor">#B31E3232</color>
     <color name="blue">#81ACDB</color>
     <color name="FDCardColor">#072B53</color>
     <color name="DeliveryBoxAmount">#CC757373</color>
+    <color name="softPurple">#FFB993D6</color>
+    <color name="lavender">#FF8CA6DB</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple">#643D61</color>
 </resources>

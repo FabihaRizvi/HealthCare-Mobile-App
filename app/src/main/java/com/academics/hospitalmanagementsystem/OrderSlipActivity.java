@@ -52,55 +52,30 @@ public class OrderSlipActivity extends AppCompatActivity {
             Toast.makeText(this, "OrderData NULL hai!", Toast.LENGTH_LONG).show();
             return;
         }
-        if (orderData != null){
-            customerName = (String) orderData.get("name");
-            contactNumber = (String) orderData.get("contact");
-            customerAddress = (String) orderData.get("address");
-            deliveryTime = (String) orderData.get("deliveryTime");
 
-            Object totalObj = orderData.get("totalAmount");
-            if (totalObj != null) {
-                totalAmount = Double.parseDouble(totalObj.toString());
-            }
+        customerName = (String) orderData.get("name");
+        contactNumber = (String) orderData.get("contact");
+        customerAddress = (String) orderData.get("address");
+        deliveryTime = (String) orderData.get("deliveryTime");
 
-            tvSlipName.setText("Name: "+ customerName);
-            tvSlipContact.setText("Contact: "+ contactNumber);
-            tvSlipAddress.setText("Address: "+ customerAddress);
-            tvSlipTotal.setText("Total Amount: Rs. " + totalAmount);
-            tvSlipDeliveryTime.setText("Delivery Time: " + deliveryTime);
+        Object totalObj = orderData.get("totalAmount");
+        if (totalObj != null) {
+            totalAmount = Double.parseDouble(totalObj.toString());
         }
 
-        orderItems = new ArrayList<>();
+        tvSlipName.setText("Name: " + customerName);
+        tvSlipContact.setText("Contact: " + contactNumber);
+        tvSlipAddress.setText("Address: " + customerAddress);
+        tvSlipTotal.setText("Total Amount: Rs. " + totalAmount);
+        tvSlipDeliveryTime.setText("Delivery Time: " + deliveryTime);
+
+        orderItems = (List<Medicine>) getIntent().getSerializableExtra("cartItems");
+        List<Integer> qtyList = (List<Integer>) getIntent().getSerializableExtra("quantities");
+
         cartMap = new HashMap<>();
-
-        Object medsObj = orderData.get("medicines");
-        if (medsObj instanceof List) {
-            List<?> rawList = (List<?>) medsObj;
-            for (Object obj : rawList) {
-                if (obj instanceof HashMap) {
-                    HashMap<String, Object> medData = (HashMap<String, Object>) obj;
-
-                    String medName = (String) medData.get("name");
-                    double price = 0;
-                    Object priceObj = medData.get("price");
-                    if (priceObj != null) {
-                        price = Double.parseDouble(priceObj.toString());
-                    }
-
-                    int qty = 0;
-                    Object qtyObj = medData.get("quantity");
-                    if (qtyObj != null) {
-                        qty = Integer.parseInt(qtyObj.toString());
-                    }
-
-                    Medicine med = new Medicine();
-                    med.name = medName;
-                    med.price = price;
-                    med.imageResId = "default_medicine";
-                    med.imageDrawableId = R.drawable.default_medicine;
-                    orderItems.add(med);
-                    cartMap.put(med, qty);
-                }
+        if (orderItems != null && qtyList != null) {
+            for (int i = 0; i < orderItems.size(); i++) {
+                cartMap.put(orderItems.get(i), qtyList.get(i));
             }
         }
 
@@ -114,32 +89,26 @@ public class OrderSlipActivity extends AppCompatActivity {
             startActivity(new Intent(OrderSlipActivity.this, HomeActivity.class));
             finish();
         });
-        adapter.notifyDataSetChanged();
-
     }
 
-    private void saveSlipAsImage(){
+    private void saveSlipAsImage() {
         slipLayout.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(slipLayout.getWidth(), slipLayout.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         slipLayout.draw(canvas);
 
-        try{
+        try {
             File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
                     "OrderSlip_" + System.currentTimeMillis() + ".png");
             FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.PNG,100, fos);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.flush();
             fos.close();
 
             Toast.makeText(this, "Slip saved in Gallery: " + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
-            Intent homeIntent = new Intent(OrderSlipActivity.this, HomeActivity.class);
-            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(homeIntent);
-            finish();
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(this, "Error saving slip: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }finally {
+        } finally {
             btnDownloadSlip.setVisibility(View.VISIBLE);
         }
     }
