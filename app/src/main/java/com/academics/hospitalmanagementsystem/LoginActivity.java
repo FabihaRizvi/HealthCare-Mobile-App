@@ -35,17 +35,17 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordInput.getText().toString();
                 MyDatabase db = new MyDatabase(getApplicationContext(),"healthcare",null, 1);
                 if (username.length() == 0 || password.length() == 0){
-                    Toast.makeText(getApplicationContext(),"Enter your details first", Toast.LENGTH_SHORT).show();
+                    ToastHelper.showToast(LoginActivity.this, "Enter your details first");
                 }else {
                     if (db.login(username, password) == 1) {
-                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                        ToastHelper.showToast(LoginActivity.this, "Login Successful");
                         SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("username", username);
                         editor.apply();
                         startActivity(new Intent(LoginActivity.this,HomeActivity.class));
                     }else{
-                        Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
+                        ToastHelper.showToast(LoginActivity.this, "Invalid username or password");
                     }
                 }
             }

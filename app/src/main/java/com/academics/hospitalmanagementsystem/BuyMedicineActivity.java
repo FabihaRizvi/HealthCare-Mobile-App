@@ -55,7 +55,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
 
         cartIcon.setOnClickListener(v -> {
             if (cartMap.isEmpty()) {
-                Toast.makeText(this, "Your cart is empty", Toast.LENGTH_SHORT).show();
+                ToastHelper.showToast(BuyMedicineActivity.this, "Your cart is empty");
             } else {
                 Intent intent = new Intent(BuyMedicineActivity.this, CartViewActivity.class);
                 intent.putExtra("cart", new ArrayList<>(cartMap.keySet()));
@@ -89,7 +89,7 @@ public class BuyMedicineActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(BuyMedicineActivity.this, "Failed to load medicines: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                ToastHelper.showToast(BuyMedicineActivity.this, "Failed to load medicines: " + databaseError.getMessage());
             }
         });
     }

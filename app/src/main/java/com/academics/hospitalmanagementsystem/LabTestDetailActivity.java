@@ -37,7 +37,7 @@ public class LabTestDetailActivity extends AppCompatActivity {
             String firebaseNode = mapTestNameToFirebaseNode(testName);
 
             if (firebaseNode == null) {
-                Toast.makeText(this, "No Firebase node found for this test", Toast.LENGTH_SHORT).show();
+                ToastHelper.showToast(this, "No Firebase node found for this test");
                 return;
             }
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference(firebaseNode).child("labs");
@@ -61,12 +61,12 @@ public class LabTestDetailActivity extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 //                    Log.e("FIREBASE_ERROR", error.getMessage());
-                    Toast.makeText(LabTestDetailActivity.this, "Failed to fetch data", Toast.LENGTH_SHORT).show();
+                    ToastHelper.showToast(LabTestDetailActivity.this, "Failed to fetch data");
                 }
             });
 
         } else {
-            Toast.makeText(this, "Test name not received", Toast.LENGTH_SHORT).show();
+            ToastHelper.showToast(this, "Test name not received");
         }
 
         TextView backOptionLab = findViewById(R.id.ddbackOptiontextView);

@@ -53,11 +53,11 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                     category = "psychiatrist";
                     break;
                 default:
-                    Toast.makeText(this, "Unknown doctor category", Toast.LENGTH_SHORT).show();
+                    ToastHelper.showToast(this, "Unknown doctor category");
                     return;
             }
         } else {
-            Toast.makeText(this, "No category provided", Toast.LENGTH_SHORT).show();
+            ToastHelper.showToast(this, "No category provided");
             return;
         }
 
@@ -99,7 +99,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 //                Log.e("FIREBASE_ERROR", error.getMessage());
-                Toast.makeText(DoctorDetailsActivity.this, "Data load failed", Toast.LENGTH_SHORT).show();
+                ToastHelper.showToast(DoctorDetailsActivity.this, "Data load failed");
             }
         });
 

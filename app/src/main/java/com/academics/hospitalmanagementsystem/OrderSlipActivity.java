@@ -49,7 +49,7 @@ public class OrderSlipActivity extends AppCompatActivity {
 
         HashMap<String, Object> orderData = (HashMap<String, Object>) getIntent().getSerializableExtra("orderData");
         if (orderData == null) {
-            Toast.makeText(this, "OrderData NULL hai!", Toast.LENGTH_LONG).show();
+            ToastHelper.showToast(this, "OrderData NULL hai!");
             return;
         }
 
@@ -105,9 +105,9 @@ public class OrderSlipActivity extends AppCompatActivity {
             fos.flush();
             fos.close();
 
-            Toast.makeText(this, "Slip saved in Gallery: " + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
+            ToastHelper.showToast(this, "Slip saved in Gallery: " + file.getAbsolutePath());
         } catch (Exception e) {
-            Toast.makeText(this, "Error saving slip: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            ToastHelper.showToast(this, "Error saving slip: " + e.getMessage());
         } finally {
             btnDownloadSlip.setVisibility(View.VISIBLE);
         }

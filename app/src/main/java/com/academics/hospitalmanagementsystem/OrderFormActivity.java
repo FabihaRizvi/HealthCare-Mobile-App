@@ -73,7 +73,7 @@ public class OrderFormActivity extends AppCompatActivity {
             String customerAddress = etAddress.getText().toString().trim();
 
             if (customerName.isEmpty() || contactNumber.isEmpty() || customerAddress.isEmpty()) {
-                Toast.makeText(this, "Please fill all details", Toast.LENGTH_SHORT).show();
+                ToastHelper.showToast(OrderFormActivity.this, "Please fill all details");
                 return;
             }
 
@@ -104,7 +104,7 @@ public class OrderFormActivity extends AppCompatActivity {
 
             orderRef.child(orderId).setValue(orderData)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(OrderFormActivity.this, "Order placed successfully!", Toast.LENGTH_LONG).show();
+                        ToastHelper.showToast(OrderFormActivity.this, "Order placed successfully!");
                         Intent slipIntent = new Intent(OrderFormActivity.this, OrderSlipActivity.class);
                         slipIntent.putExtra("orderId", orderId);
                         slipIntent.putExtra("orderData", new HashMap<>(orderData));
@@ -114,7 +114,7 @@ public class OrderFormActivity extends AppCompatActivity {
 //                        finish();
                     })
                     .addOnFailureListener(e ->
-                            Toast.makeText(OrderFormActivity.this, "Failed:" + e.getMessage(), Toast.LENGTH_SHORT).show()
+                            ToastHelper.showToast(OrderFormActivity.this, "Failed: " + e.getMessage())
                     );
         });
     }

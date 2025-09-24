@@ -87,7 +87,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 String time = editTime.getText().toString().trim();
 
                 if (patientName.isEmpty() || phone.isEmpty() || date.isEmpty() || time.isEmpty()) {
-                    Toast.makeText(BookAppointmentActivity.this, "Please fill all details", Toast.LENGTH_SHORT).show();
+                    ToastHelper.showToast(BookAppointmentActivity.this, "Please fill all details");
                     return;
                 }
 
@@ -103,11 +103,11 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
                 dbRef.setValue(data)
                         .addOnSuccessListener(unused -> {
-                            Toast.makeText(BookAppointmentActivity.this, "Appointment Booked Successfully", Toast.LENGTH_SHORT).show();
+                            ToastHelper.showToast(BookAppointmentActivity.this, "Appointment Booked Successfully");
                             finish();
                         })
                         .addOnFailureListener(e -> {
-                            Toast.makeText(BookAppointmentActivity.this, "Booking failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            ToastHelper.showToast(BookAppointmentActivity.this, "Booking failed: " + e.getMessage());
                         });
             }
         });

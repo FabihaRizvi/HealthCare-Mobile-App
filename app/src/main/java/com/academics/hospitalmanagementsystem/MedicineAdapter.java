@@ -59,7 +59,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.ViewHo
 
         holder.addBtn.setOnClickListener(v -> {
             cartMap.put(med, med.quantity);
-            Toast.makeText(context, med.name + " added to cart", Toast.LENGTH_SHORT).show();
+            ToastHelper.showToast(context, med.name + " added to cart");
             if (onCartUpdated != null) onCartUpdated.run();
         });
     }

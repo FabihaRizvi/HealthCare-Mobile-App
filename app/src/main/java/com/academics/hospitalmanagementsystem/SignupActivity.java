@@ -44,18 +44,19 @@ public class SignupActivity extends AppCompatActivity {
                 MyDatabase db = new MyDatabase(getApplicationContext(),"healthcare",null, 1);
 
                 if (username.length() == 0 || password.length() == 0 || email.length() == 0 || confirm.length() == 0) {
-                    Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_SHORT).show();
+                    ToastHelper.showToast(getApplicationContext(), "Please fill all the details");
                 } else {
                     if (password.compareTo(confirm) == 0) {
                         if (isValid(password)) {
                             db.signup(email,username, password);
-                            Toast.makeText(getApplicationContext(),"Signup successfull",Toast.LENGTH_SHORT).show();
+                            ToastHelper.showToast(getApplicationContext(), "Signup successful");
                             startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                         }else {
-                            Toast.makeText(getApplicationContext(), "Password must contain atleast 8 characters including letters,digits and special symbols", Toast.LENGTH_SHORT).show();
+                             ToastHelper.showToast(getApplicationContext(),
+                                    "Password must contain at least 8 characters including letters, digits and special symbols");
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Password didn't match", Toast.LENGTH_SHORT).show();
+                        ToastHelper.showToast(getApplicationContext(), "Password didn't match");
                     }
                 }
             }
