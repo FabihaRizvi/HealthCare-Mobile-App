@@ -13,7 +13,9 @@
         android:text="@string/backBtn"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:padding="8dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -36,7 +36,7 @@ public class CartViewActivity extends AppCompatActivity {
 
         backOption.setOnClickListener(v -> startActivity(new Intent(CartViewActivity.this, HomeActivity.class)));
 
-        cartItems  = (List<Medicine>) getIntent().getSerializableExtra("cart");
+        cartItems = (List<Medicine>) getIntent().getSerializableExtra("cart");
         quantities = (List<Integer>) getIntent().getSerializableExtra("quantities");
 
         cartMap = new HashMap<>();
@@ -46,10 +46,17 @@ public class CartViewActivity extends AppCompatActivity {
             }
         }
 
-        cartItems = new ArrayList<>(cartMap.keySet());
+        cartItems = new ArrayList<>();
+        cartItems.addAll(cartMap.keySet());
+
+//        cartItems = new ArrayList<>(cartMap.keySet());
+//        cartAdapter = new CartAdapter(this, cartItems, cartMap, () -> {
+//            cartAdapter.notifyDataSetChanged();
+//        }, true);
+
         cartAdapter = new CartAdapter(this, cartItems, cartMap, () -> {
             cartAdapter.notifyDataSetChanged();
-        }, true);
+        }, false);
 
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartRecyclerView.setAdapter(cartAdapter);

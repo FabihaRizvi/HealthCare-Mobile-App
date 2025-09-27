@@ -1,6 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base theme -->
     <style name="Base.Theme.HospitalManagementSystem" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
@@ -9,11 +8,11 @@
 
     <style name="Theme.HospitalManagementSystem" parent="Base.Theme.HospitalManagementSystem" />
 
-
     <style name="LaunchTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/background_gradient</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
 
 </resources>

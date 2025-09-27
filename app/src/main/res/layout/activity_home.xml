@@ -29,7 +29,7 @@
         app:cardBackgroundColor="@color/purple"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp">
+        android:layout_margin="20dp">
 
         <ImageView
             android:layout_width="24dp"
